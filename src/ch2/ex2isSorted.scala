@@ -19,12 +19,14 @@ object ex2isSorted {
 
 
   def main(args: Array[String]): Unit = {
-    println(isSorted(Array(), (_: Int,_: Int) => false)) // true
-    println(isSorted(Array(1), (_: Int,_: Int) => false)) // true
-    println(isSorted(Array(1,2,3), (a: Int, b: Int) => a < b)) // true
-    println(isSorted(Array(3,2,3), (a: Int, b: Int) => a <= b)) // false
-    println(isSorted(Array(1,2,2,3), (a: Int, b: Int) => a <= b)) // true
-    println(isSorted(Array(4,2,3), (a: Int, b: Int) => a%2 <= b%2)) // true
-    println(isSorted(Array(4,1,2,3), (a: Int, b: Int) => a%2 < b%2)) // false
+    assert(isSorted(Array(), (_: Int,_: Int) => false)) // true
+    assert(isSorted(Array(1), (_: Int,_: Int) => false)) // true
+    assert(isSorted(Array(1,2,3), (a: Int, b: Int) => a < b)) // true
+    assert(!isSorted(Array(3,2,3), (a: Int, b: Int) => a <= b)) // false
+    assert(isSorted(Array(1,2,2,3), (a: Int, b: Int) => a <= b)) // true
+    assert(isSorted(Array(4,2,3), (a: Int, b: Int) => a%2 <= b%2)) // true
+    assert(!isSorted(Array(4,1,2,3), (a: Int, b: Int) => a%2 < b%2)) // false
+
+    println("all fine")
   }
 }
