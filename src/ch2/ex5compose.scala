@@ -17,10 +17,14 @@ object ex5compose {
     def composed = compose(isEven, first)
     println(isEven(first(ints)))
     println(composed(ints))
+    println(first.andThen(isEven)(ints))
+    println(isEven.compose(first)(ints))
 
     println("--------")
     println(isEven(first(Array(3, 4))))
     println(composed(Array(3, 4)))
+    println(first.andThen(isEven)(Array(3,4)))
+    println(isEven.compose(first)(Array(3,4)))
 
   }
 }
