@@ -43,7 +43,16 @@ trait Stream[+A] {
     }
   }
 
-  def forAll(p: A => Boolean): Boolean = ???
+  def forAll(f: A => Boolean): Boolean = {
+    foldRight(true)((a, b) => f(a) && b)
+  }
+
+  def takeWhile_fold(f: A => Boolean): Stream[A] = {
+    foldRight(empty[A])((h,t) =>
+      if (f(h)) cons(h,t)
+      else empty[A]
+    )
+  }
 
   def headOption: Option[A] = ???
 
